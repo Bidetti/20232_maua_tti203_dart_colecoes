@@ -1,13 +1,109 @@
+// import java.util.Map;
+// dart:core = java.lang
+// dart:collection
+import 'dart:io';
 void main (List <String> arguments) {
-  var portugues = {'Brasil', 'Portugal'};
-  var europa = {'Alemanha', 'Portugal', 'Espanha'};
-  print(europa.union(portugues));
-  print('-------------------');
-  print(portugues.intersection(europa));
-  print('-------------------');
-  print(portugues.difference(europa));
-  print('-------------------');
-  print(europa.union(portugues).difference(europa.intersection(portugues)));
+
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18
+  // };
+
+  // print(pessoa['nome']);
+
+  // var nome = pessoa['nome'];
+  // print(nome);
+  
+  // var keys = pessoa.keys;
+  // print(keys);
+  // for (final key in keys) {
+  //   print(key);
+  //   print(pessoa[key]);
+  // }
+  // var entries = pessoa.entries;
+  // for (final entry in entries) {
+  //   print(entry);
+  //   print(entry.key);
+  //   print(entry.value);
+  // }
+
+  Map <String, String> contatos = {
+    "Ana": "123456789",
+  };
+  
+  print("Operaçoes CRUD\n1- Criar\n2- Ler\n3- Atualizar\n4- Deletar\n5- Sair\n");
+  print("Digite a operação desejada: ");
+  var operacao = stdin.readLineSync();
+  while (operacao != '5'){
+    if (operacao == '1'){
+      print("Digite o nome do contato: ");
+      var nome = stdin.readLineSync();
+      print("Digite o telefone do contato: ");
+      var telefone = stdin.readLineSync();
+      contatos['$nome'] = telefone!;
+      print("Contato adicionado com sucesso!");
+    }
+    else if (operacao == '2'){
+      print("Contatos:");
+      for (final contato in contatos.keys){
+        print(contato);
+      }
+      print("Digite o nome do contato: ");
+      var nome = stdin.readLineSync();
+      print(contatos[nome]);
+    }
+    else if (operacao == '3'){
+      print("Digite o nome do contato: ");
+      var nome = stdin.readLineSync();
+      print("Digite o novo telefone do contato: ");
+      var telefone = stdin.readLineSync();
+      contatos['$nome'] = telefone!;
+      print("Contato atualizado com sucesso!");
+    }
+    else if (operacao == '4'){
+      print("Digite o nome do contato: ");
+      var nome = stdin.readLineSync();
+      contatos.remove(nome);
+      print("Contato removido com sucesso!");
+    }
+    else {
+      print("Operação inválida!");
+    }
+    print("Operaçoes CRUD\n1- Criar\n2- Ler\n3- Atualizar\n4- Deletar\n5- Sair\n");
+    print("Digite a operação desejada: ");
+    operacao = stdin.readLineSync();
+  }
+  // Map <String, dynamic> pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18
+  // };
+
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'nome': 'Pedro'
+  // };
+  // print(pessoa);
+
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'altura': 1.8
+  // };
+  // print(pessoa.runtimeType);
+
+  // var lembretes = {
+  //   1: 'comprar café',
+  //   2: 'ver um filme'
+  // };
+  // print(lembretes.runtimeType);
+  // var portugues = {'Brasil', 'Portugal'};
+  // var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  // print(europa.union(portugues));
+  // print('-------------------');
+  // print(portugues.intersection(europa));
+  // print('-------------------');
+  // print(portugues.difference(europa));
+  // print('-------------------');
+  // print(europa.union(portugues).difference(europa.intersection(portugues)));
   // var nomes = {'Ana', 'João', 'Maria'};
   // var paises = {'Brasil', 'Brasil'};
   // var A = {1, 2, 3, 4, 5, 6};
